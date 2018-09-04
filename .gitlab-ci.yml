@@ -1,0 +1,24 @@
+image: python:3.6-stretch
+
+before_script:
+  - python -V  # Print out python version for debugging
+  - pip install --upgrade setuptools twine wheel
+
+build:
+  stage: build
+  script:
+    - python3 setup.py sdist bdist_wheel
+  artifacts:
+    paths:
+      - dist/aws_lambda_wsgi*
+
+deploy to pypi:
+  stage: deploy
+  only:
+    - /^v([0-9]{1,2}\.)+[0-9]{1,3}$/
+  environment:
+    name: production
+    url: https://pypi.org/project/aws-lambda-wsgi/
+  script:
+    - twine upload dist/*
+  when: on_success

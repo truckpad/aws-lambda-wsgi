@@ -34,6 +34,7 @@ setup(
     packages=['aws_lambda_wsgi'],
     description='AWS Lambda WSGI - WSGI adapter for AWS API Gateway/Lambda Proxy Integration',
     long_description=read('README.md'),
+    long_description_content_type="text/markdown",
     author='Marcos Araujo Sobrinho',
     author_email='marcos.sobrinho@truckpad.com.br',
     url='https://github.com/truckpad/aws-lambda-wsgi',
