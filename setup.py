@@ -32,7 +32,7 @@ setup(
     name='aws_lambda_wsgi',
     version=version(),
     packages=['aws_lambda_wsgi'],
-    description='AWS Lambda WSGI - ',
+    description='AWS Lambda WSGI - WSGI adapter for AWS API Gateway/Lambda Proxy Integration',
     long_description=read('README.md'),
     author='Marcos Araujo Sobrinho',
     author_email='marcos.sobrinho@truckpad.com.br',
