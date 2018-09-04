@@ -20,22 +20,16 @@ def version():
     try:
         git_tag = subprocess.check_output(['git', 'describe', '--tags'])
         if git_tag:
-            git_version = git_tag.strip()[1:]
-            with open('VERSION', 'w') as version_file:
-                version_file.write(git_version)
+            git_version = git_tag.strip()[1:].decode('utf-8')
     except:
         pass
     if not git_version:
-        try:
-            with open('VERSION', 'r') as version_file:
-                git_version = version_file.read()
-        except:
-            git_version = 'SNAPSHOT'
-    return str(git_version)
+        git_version = 'SNAPSHOT'
+    return git_version
 
 
 setup(
-    name='geo_api',
+    name='aws_lambda_wsgi',
     version=version(),
     packages=['aws_lambda_wsgi'],
     description='AWS Lambda WSGI - ',
