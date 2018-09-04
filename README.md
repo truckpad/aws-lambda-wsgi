@@ -11,17 +11,17 @@ Based on [awsgi, by Matthew Wedgwood](https://github.com/slank/awsgi).
 Installation
 ------------
 
-`aws-lambda-wsgi` is available from PyPI as `aws-lambda-wsgi`:
+`aws_lambda_wsgi` is available from PyPI as `aws_lambda_wsgi`:
 
 ```
-pip install aws-lambda-wsgi
+pip install aws_lambda_wsgi
 ```
 
 Example
 -------
 
 ```python
-import awsgi
+import aws_lambda_wsgi
 from bottle import Bottle
 
 app = Bottle()
@@ -29,9 +29,9 @@ app = Bottle()
 
 @app.route('/')
 def index():
-    return jsonify(status=200, message='OK')
+    return {'message': 'OK'}
 
 
 def lambda_handler(event, context):
-    return awsgi.response(app, event, context)
+    return aws_lambda_wsgi.response(app, event, context)
 ```
